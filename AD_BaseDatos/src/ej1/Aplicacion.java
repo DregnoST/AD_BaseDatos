@@ -6,7 +6,6 @@ public class Aplicacion {
 		
 		Consulta.filtrarRegistro("Paco");
 		
-
 	}
 
 }
