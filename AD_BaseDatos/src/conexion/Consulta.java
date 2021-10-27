@@ -1,4 +1,4 @@
-package ej1;
+package conexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

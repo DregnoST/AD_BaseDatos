@@ -1,4 +1,4 @@
-package ej1;
+package conexion;
 
 import java.lang.module.InvalidModuleDescriptorException;
 import java.sql.Connection;
