@@ -9,6 +9,7 @@ public class Aplicacion {
 //		ManejoTabla.borrar();
 		ManejoTabla.verCosas();
 		
+		
 	}
 
 }
