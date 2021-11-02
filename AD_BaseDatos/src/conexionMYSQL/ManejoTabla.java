@@ -1,4 +1,4 @@
-package conexion;
+package conexionMYSQL;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -9,29 +9,26 @@ import java.sql.Statement;
 
 public class ManejoTabla {
 
-	public static void crear() {
+	public static void crear(String nombreTabla, String camposTabla) {
 		Connection miCon = Conexion.conectar();
-		String sentencia = "create TABLE clientes (dni CHAR(9) NOT NULL, apellidos VARCHAR(32) NOT NULL, cp CHAR(5), PRIMARY KEY (dni))";
+		String sentencia = "create TABLE IF NOT EXISTS " + nombreTabla + " " + camposTabla + ";";
 		
 		try {
 			Statement consulta = miCon.createStatement();
 			
-
 			if (consulta.execute(sentencia)) {
 				System.out.println("tabla creada");
 			}
-			
+			System.out.println("tabla " + nombreTabla + " lista");
 
-			
-			
 		} catch (Exception e ) {
 			System.out.println("Error: " + e);
 		}
 	}
 	
-	public static void borrar() {
+	public static void borrar(String nombreTabla) {
 		Connection miCon = Conexion.conectar();
-		String sentencia = "DROP TABLE clientes";
+		String sentencia = "DROP TABLE " + nombreTabla + ";";
 		
 		try {
 			Statement consulta = miCon.createStatement();
