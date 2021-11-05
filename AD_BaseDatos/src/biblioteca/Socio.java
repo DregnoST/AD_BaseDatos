@@ -16,6 +16,59 @@ public class Socio {
 		this.domicilio = domicilio;
 		this.telefono = telefono;
 	}
-	
-	
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	public String getDomicilio() {
+		return domicilio;
+	}
+
+	public void setDomicilio(String domicilio) {
+		this.domicilio = domicilio;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	@Override
+	public String toString() {
+		return "Socio [codigo=" + codigo + ", fechaNacimiento=" + fechaNacimiento + ", nombre=" + nombre
+				+ ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", telefono=" + telefono + "]";
+	}
+
 }
