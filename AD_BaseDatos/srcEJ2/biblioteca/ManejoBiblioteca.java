@@ -8,9 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import conexionMYSQL.Conexion;
-import conexionMYSQL.CrearBD;
-import conexionMYSQL.ManejoTabla;
+import conexion.Conexion;
+import conexion.CrearBD;
+import conexion.ManejoTabla;
 
 public class ManejoBiblioteca {
 	
@@ -53,19 +53,21 @@ public class ManejoBiblioteca {
 		prestamos.add(new Prestamo(3, 2, fecha(""), fecha("29-01-2022")));
 	}
 	
-	public static void insertarDatos() {
-		
-	}
-	
 	public static void insertarLibros() {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
 		
 		for (Libro libro : libros) {
 			try {
-				consulta = miCon.prepareStatement("INSERT INTO biblioteca.libro (codigo, titulo, autor, editorial, año, isbn, numeroEjemplares, numeroPaginas) VALUES (?,?,?,?,?,?,?,?)");
+				consulta = miCon.prepareStatement("INSERT INTO libro (codigo, titulo, autor, editorial, año, isbn, numeroEjemplares, numeroPaginas) VALUES (?,?,?,?,?,?,?,?)");
 				consulta.setInt(1, libro.getCodigo());
 				consulta.setString(2, libro.getTitulo());
+				consulta.setString(3, libro.getAutor());
+				consulta.setString(4, libro.getEditorial());
+				consulta.setInt(5, libro.getAño());
+				consulta.setString(6, libro.getIsbn());
+				consulta.setInt(7, libro.getNumeroEjemplares());
+				consulta.setInt(8, libro.getNumeroPaginas());
 				consulta.executeUpdate();
 				
 				System.out.println("insercion ok");
@@ -79,12 +81,11 @@ public class ManejoBiblioteca {
 	}
 	
 	public static void crearBiblioteca() {
-		CrearBD.crear("biblioteca");
 		crearTablas();
 	}
 	
 	public static void crearTablas() {
-		ManejoTabla.crear("biblioteca.libro", 
+		ManejoTabla.crear("libro", 
 				"(codigo INT NOT NULL, "
 				+ "titulo VARCHAR(40), "
 				+ "autor VARCHAR(40), "
@@ -95,7 +96,7 @@ public class ManejoBiblioteca {
 				+ "numeroPaginas INT, "
 				+ "PRIMARY KEY (codigo), UNIQUE (isbn))");
 		
-		ManejoTabla.crear("biblioteca.socio", 
+		ManejoTabla.crear("socio", 
 				"(codigo INT NOT NULL, "
 				+ "nombre VARCHAR(40), "
 				+ "apellidos VARCHAR(40), "
@@ -104,7 +105,7 @@ public class ManejoBiblioteca {
 				+ "telefono VARCHAR(40), "
 				+ "PRIMARY KEY (codigo))");
 		
-		ManejoTabla.crear("biblioteca.prestamo", 
+		ManejoTabla.crear("prestamo", 
 				"(codigoLibro INT NOT NULL, "
 				+ "codigoSocio INT NOT NULL, "
 				+ "fechaInicioPrestamo DATE, "

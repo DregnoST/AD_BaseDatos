@@ -3,7 +3,7 @@ package biblioteca;
 public class Libro {
 	
 	int codigo, año, numeroEjemplares, numeroPaginas;
-	String titulo, autor, editorial;
+	String titulo, autor, editorial, isbn;
 	
 	public Libro(int codigo, String titulo, String autor, String editorial, 
 			int año, String isbn, int numeroEjemplares, int numeroPaginas) {
@@ -15,9 +15,22 @@ public class Libro {
 		this.titulo = titulo;
 		this.autor = autor;
 		this.editorial = editorial;
+		this.isbn = isbn;
 	}
 	
 	
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+
 
 	public int getCodigo() {
 		return codigo;

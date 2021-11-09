@@ -1,4 +1,4 @@
-package conexionMYSQL;
+package conexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,4 +1,4 @@
-package conexionMYSQL;
+package conexion;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -61,4 +61,5 @@ public class ManejoTabla {
 			e.printStackTrace();
 		}
 	}
+	
 }

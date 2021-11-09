@@ -1,11 +1,11 @@
-package conexionMYSQL;
+package conexion;
 
 import java.lang.module.InvalidModuleDescriptorException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexion {
+public class ConexionMYSQL {
 	
 	private static String url = "jdbc:mysql://localhost:3306/";
 	private static final String USUARIO = "usuario2";
@@ -25,7 +25,6 @@ public class Conexion {
 		} catch (InvalidModuleDescriptorException e) {
 			System.out.println("Error PAM");
 		}
-		
 		return conexion;
 	}
 	
