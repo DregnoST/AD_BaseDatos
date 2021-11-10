@@ -18,7 +18,7 @@ public class ManejoTabla {
 			if (consulta.execute(sentencia)) {
 				System.out.println("tabla creada");
 			}
-			System.out.println("tabla " + nombreTabla + " lista");
+			System.out.println("tabla " + nombreTabla + " OK");
 
 		} catch (Exception e ) {
 			System.out.println("Error: " + e);
