@@ -29,8 +29,8 @@ public class ManejoBiblioteca {
 		socios.add(new Socio(2, "Jose Luis", "López Oscarra", Date.valueOf("1986-09-26"), "Calle Buenavista", "623456321"));
 		
 		// prestamos
-		prestamos.add(new Prestamo(1, 0, Date.valueOf("2001-03-16"), Date.valueOf("2021-12-20")));
-		prestamos.add(new Prestamo(3, 2, Date.valueOf("2001-03-16"), Date.valueOf("2022-01-29")));
+		prestamos.add(new Prestamo(1, 0, Date.valueOf("2011-03-16"), Date.valueOf("2016-12-20")));
+		prestamos.add(new Prestamo(3, 2, Date.valueOf("2016-04-17"), Date.valueOf("2020-01-29")));
 	}
 	
 	public static void insertarLibros() {

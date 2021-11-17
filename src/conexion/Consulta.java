@@ -2,6 +2,7 @@ package conexion;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -87,11 +88,12 @@ public class Consulta {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
 		
+		System.out.println("\nLIBROS\n==============");
 		try {
 			consulta = miCon.prepareStatement("SELECT * FROM libro");
 			ResultSet resultados = consulta.executeQuery();
-			System.out.println("\nLIBROS");
 			while (resultados.next()) {
+				System.out.println("LIBRO");
 				System.out.println("Codigo: " + resultados.getInt("codigo"));
 				System.out.println("Titulo: " + resultados.getString("titulo"));
 				System.out.println("Autor: " + resultados.getString("autor"));
@@ -105,11 +107,15 @@ public class Consulta {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("==============");
 	}
 	
 	public static void verTodoSocios() {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
+		
+		System.out.println("\nSOCIOS\n==============");
 		
 		try {
 			consulta = miCon.prepareStatement("SELECT * FROM socio");
@@ -127,11 +133,15 @@ public class Consulta {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("==============");
 	}
 	
 	public static void verTodosPrestamos() {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
+		
+		System.out.println("\nPRESTAMOS\n==============");
 		
 		try {
 			consulta = miCon.prepareStatement("SELECT * FROM prestamo");
@@ -145,6 +155,95 @@ public class Consulta {
 			}
 			
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("==============");
+	}
+	
+	public static void librosPrestados() {
+		Connection miCon = Conexion.conectar();
+		PreparedStatement consulta;
+		
+		System.out.println("\nLIBROS PRESTADOS:");
+		
+		try {
+			consulta = miCon.prepareStatement("SELECT * FROM libro WHERE codigo IN (SELECT codigoLibro FROM prestamo)");
+			ResultSet resultados = consulta.executeQuery();
+			while (resultados.next()) {
+				System.out.println("LIBRO");
+				System.out.println("Codigo: " + resultados.getInt("codigo"));
+				System.out.println("Titulo: " + resultados.getString("titulo"));
+				System.out.println("ISBN: " + resultados.getString("isbn") + "\n");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void librosPrestadosSocio(int codigoSocio) {
+		Connection miCon = Conexion.conectar();
+		PreparedStatement consulta;
+		
+		System.out.print("\nNumero de libros prestados al cliente con el código: " + codigoSocio + " --> ");
+		
+		try {
+			consulta = miCon.prepareStatement("SELECT COUNT(codigoSocio) FROM prestamo WHERE codigoSocio = " + codigoSocio);
+			ResultSet resultados = consulta.executeQuery();
+			while (resultados.next()) {
+				System.out.println(resultados.getInt(1) + "\n");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void librosPrestamoExpirado() {
+		Connection miCon = Conexion.conectar();
+		PreparedStatement consulta;
+		long ahora = System.currentTimeMillis();
+		Date hoy = new Date(ahora);
+		
+
+		System.out.println("\nLibros que han superado la fecha de fin de prestamo:");
+		
+		try {
+			consulta = miCon.prepareStatement("SELECT * FROM libro WHERE codigo IN (SELECT codigoLibro FROM prestamo WHERE fechaFinPrestamo <= " + hoy.getTime() + ")");
+			ResultSet resultados = consulta.executeQuery();
+			while (resultados.next()) {
+				System.out.println("LIBRO");
+				System.out.println("Codigo: " + resultados.getInt("codigo"));
+				System.out.println("Titulo: " + resultados.getString("titulo"));
+				System.out.println("ISBN: " + resultados.getString("isbn") + "\n");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void sociosLibrosPrestamoExpirado() {
+		Connection miCon = Conexion.conectar();
+		PreparedStatement consulta;
+		long ahora = System.currentTimeMillis();
+		Date hoy = new Date(ahora);
+		
+		System.out.println("\nSocios que tienen libros que han superado la fecha de fin de préstamo:");
+		
+		try {
+			consulta = miCon.prepareStatement("SELECT * FROM socio WHERE codigo IN (SELECT codigoSocio FROM prestamo WHERE fechaFinPrestamo <= " + hoy.getTime() + ")");
+			ResultSet resultados = consulta.executeQuery();
+			while (resultados.next()) {
+				System.out.println("SOCIO");
+				System.out.println("Codigo: " + resultados.getInt("codigo"));
+				System.out.println("Nombre " + resultados.getString("nombre"));
+				System.out.println("Apellidos " + resultados.getString("apellidos"));
+				System.out.println("Telefono: " + resultados.getString("telefono") + "\n");
+			}
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}

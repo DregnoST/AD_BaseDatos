@@ -11,6 +11,10 @@ public class Aplicacion {
 		Consulta.verTodoLibros();
 		Consulta.verTodoSocios();
 		Consulta.verTodosPrestamos();
+		Consulta.librosPrestados();
+		Consulta.librosPrestadosSocio(2);
+		Consulta.librosPrestamoExpirado();
+		Consulta.sociosLibrosPrestamoExpirado();
 
 	}
 
