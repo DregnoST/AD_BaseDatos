@@ -33,9 +33,6 @@ public class Consulta {
 			consulta = miCon.prepareStatement("");
 			consulta.setString(1, nombre);
 			consulta.executeUpdate();
-			
-			
-			
 			System.out.println("borrado ok");
 			
 		} catch (SQLException e) {
