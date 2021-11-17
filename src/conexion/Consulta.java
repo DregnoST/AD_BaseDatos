@@ -65,6 +65,7 @@ public class Consulta {
 	public static void verTablas() {
 		Connection miCon = Conexion.conectar();
 		DatabaseMetaData dbmd;
+		System.out.println("\nTABLAS\n==============");
 		
 		try {
 			dbmd = miCon.getMetaData();
@@ -73,13 +74,13 @@ public class Consulta {
 			
 			while (tablas.next()) {
 				String nombre = tablas.getString("TABLE_NAME");
-				System.out.println("TABLAS\n==============");
 				System.out.println(nombre);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("==============");
 	}
 
 	public static void verTodoLibros() {

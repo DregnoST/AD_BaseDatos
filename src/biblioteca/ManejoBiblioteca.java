@@ -15,22 +15,6 @@ public class ManejoBiblioteca {
 	static ArrayList<Socio> socios = new ArrayList<>();
 	static ArrayList<Prestamo> prestamos = new ArrayList<>();
 	
-	public static Date fecha(String d) {
-		Date fecha = null;
-		java.util.Date date = new java.util.Date();
-		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-		try {
-			String fechaConFormato = formatoFecha.format(d);
-			fecha = Date.valueOf(fechaConFormato);
-			
-		} catch (Exception e) {;
-			// si hay algun error asignará la fecha actual del sistema
-			String fechaConFormato = formatoFecha.format(date);
-			fecha = Date.valueOf(fechaConFormato);
-		}
-		return fecha;
-	}
-	
 	public static void crearDatos() {
 		// libros
 		libros.add(new Libro(0, "El retorno de Nagash", "Magallanes", "timunmas", 2014, "123-456-789", 120, 480));
@@ -40,13 +24,13 @@ public class ManejoBiblioteca {
 		libros.add(new Libro(4, "Archaon", "Magallanes", "paqueveas", 2014, "123-456-793", 105, 401));
 		
 		// socios
-		socios.add(new Socio(0, "Carlos", "Matias de la Cruz", fecha("16-03-1996"), "Calle la colcha", "623456789"));
-		socios.add(new Socio(1, "Marcos", "de Alcordón", fecha("26-09-1986"), "Calle Buenavista", "623456321"));
-		socios.add(new Socio(2, "Jose Luis", "López Oscarra", fecha("26-09-1986"), "Calle Buenavista", "623456321"));
+		socios.add(new Socio(0, "Carlos", "Matias de la Cruz", Date.valueOf("1996-03-16"), "Calle la colcha", "623456789"));
+		socios.add(new Socio(1, "Marcos", "de Alcordón", Date.valueOf("1986-09-26"), "Calle Buenavista", "623456321"));
+		socios.add(new Socio(2, "Jose Luis", "López Oscarra", Date.valueOf("1986-09-26"), "Calle Buenavista", "623456321"));
 		
 		// prestamos
-		prestamos.add(new Prestamo(1, 0, fecha(""), fecha("20-12-2021")));
-		prestamos.add(new Prestamo(3, 2, fecha(""), fecha("29-01-2022")));
+		prestamos.add(new Prestamo(1, 0, Date.valueOf("2001-03-16"), Date.valueOf("2021-12-20")));
+		prestamos.add(new Prestamo(3, 2, Date.valueOf("2001-03-16"), Date.valueOf("2022-01-29")));
 	}
 	
 	public static void insertarLibros() {
@@ -108,8 +92,7 @@ public class ManejoBiblioteca {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-			
+			}	
 		}
 	}
 	
