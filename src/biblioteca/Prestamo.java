@@ -1,5 +1,7 @@
+// Arán García Vallcanera
 package biblioteca;
 
+// clase que representa la tabla prestamos
 import java.sql.Date;
 
 public class Prestamo {
@@ -46,3 +48,4 @@ public class Prestamo {
 	}
 
 }
+//Arán García Vallcanera

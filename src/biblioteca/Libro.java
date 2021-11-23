@@ -1,5 +1,7 @@
+// Arán García Vallcanera
 package biblioteca;
 
+// clase libro que representa la tabla libro
 public class Libro {
 	int codigo, año, numeroEjemplares, numeroPaginas;
 	String titulo, autor, editorial, isbn;
@@ -88,3 +90,4 @@ public class Libro {
 				+ numeroPaginas + "]";
 	}
 }
+//Arán García Vallcanera

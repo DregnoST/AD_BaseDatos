@@ -1,3 +1,4 @@
+//Arán García Vallcanera
 package conexion;
 
 import java.sql.Connection;
@@ -6,8 +7,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+// clase que contiene las consultas utilizadas
 public class Consulta {
+	// consulta no utilizada
 	public static void insertarRegistro(String nombre, int edad) {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -25,6 +27,7 @@ public class Consulta {
 		}
 	}
 	
+	// consulta no utilizada
 	public static void borrarRegistro(String nombre) {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -40,6 +43,7 @@ public class Consulta {
 		}
 	}
 	
+	// consulta no utilizada
 	public static void filtrarRegistro(String nombre) {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -60,6 +64,7 @@ public class Consulta {
 		}
 	}
 	
+	// consulta que nos muestra las tablas que hay en la base de datos
 	public static void verTablas() {
 		Connection miCon = Conexion.conectar();
 		DatabaseMetaData dbmd;
@@ -81,6 +86,7 @@ public class Consulta {
 		System.out.println("==============");
 	}
 
+	// consulta que nos muestra el contenido de la tabla Libros
 	public static void verTodoLibros() {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -108,6 +114,7 @@ public class Consulta {
 		System.out.println("==============");
 	}
 	
+	// consulta que nos muestra el contenido de la tabla Socios
 	public static void verTodoSocios() {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -134,6 +141,7 @@ public class Consulta {
 		System.out.println("==============");
 	}
 	
+	// consulta que nos muestra el contenido de la tabla Prestamos
 	public static void verTodosPrestamos() {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -158,6 +166,7 @@ public class Consulta {
 		System.out.println("==============");
 	}
 	
+	// consulta que nos muestra los libros prestados actualmente
 	public static void librosPrestados() {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -179,6 +188,7 @@ public class Consulta {
 		}
 	}
 	
+	// consulta que nos muestra el numero de libros que se le ha prestado a un socio pasando como argumento el codigo del socio
 	public static void librosPrestadosSocio(int codigoSocio) {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -197,6 +207,7 @@ public class Consulta {
 		}
 	}
 	
+	// consulta que nos muestra los libros que han superado la fecha de fin de prestamo
 	public static void librosPrestamoExpirado() {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -221,6 +232,7 @@ public class Consulta {
 		}
 	}
 	
+	// consulta que nos muestra los los socios que tienen libros que han superado la fecha de fin de préstamo
 	public static void sociosLibrosPrestamoExpirado() {
 		Connection miCon = Conexion.conectar();
 		PreparedStatement consulta;
@@ -245,3 +257,4 @@ public class Consulta {
 		}
 	}
 }
+//Arán García Vallcanera

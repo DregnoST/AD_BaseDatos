@@ -1,5 +1,7 @@
+// Arán García Vallcanera
 package conexion;
 
+// clase principal que contiene el main
 import biblioteca.ManejoBiblioteca;
 
 public class Aplicacion {
@@ -19,3 +21,4 @@ public class Aplicacion {
 	}
 
 }
+//Arán García Vallcanera

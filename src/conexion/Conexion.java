@@ -1,3 +1,4 @@
+//Arán García Vallcanera
 package conexion;
 
 import java.lang.module.InvalidModuleDescriptorException;
@@ -5,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+// clase para conectarnos a la base de datos
 public class Conexion {
 	private static String url = "jdbc:sqlite:biblioteca.db";
 	
@@ -27,3 +29,4 @@ public class Conexion {
 		return conexion;
 	}
 }
+//Arán García Vallcanera

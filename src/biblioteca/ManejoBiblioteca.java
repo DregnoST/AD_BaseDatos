@@ -1,3 +1,4 @@
+// Arán García Vallcanera
 package biblioteca;
 
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import conexion.Conexion;
 import conexion.ManejoTabla;
 
+// clase para la gestion de la creación y datos de la biblioteca
 public class ManejoBiblioteca {
 	static ArrayList<Libro> libros = new ArrayList<>();
 	static ArrayList<Socio> socios = new ArrayList<>();
@@ -140,3 +142,4 @@ public class ManejoBiblioteca {
 		
 	}
 }
+//Arán García Vallcanera

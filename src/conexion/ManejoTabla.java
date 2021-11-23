@@ -1,3 +1,4 @@
+//Arán García Vallcanera
 package conexion;
 
 import java.sql.Connection;
@@ -6,7 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+// clase que gestiona la creacion de tablas
 public class ManejoTabla {
+	
+	// metodo para crear tablas
 	public static void crear(String nombreTabla, String camposTabla) {
 		Connection miCon = Conexion.conectar();
 		String sentencia = "create TABLE IF NOT EXISTS " + nombreTabla + " " + camposTabla + ";";
@@ -37,6 +41,7 @@ public class ManejoTabla {
 		}
 	}
 	
+	// metodo no utilizado
 	public static void verCosas() {
 		Connection miCon = Conexion.conectar();
 	
@@ -62,3 +67,4 @@ public class ManejoTabla {
 	}
 
 }
+//Arán García Vallcanera

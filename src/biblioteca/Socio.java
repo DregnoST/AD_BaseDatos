@@ -1,5 +1,7 @@
+// Arán García Vallcanera
 package biblioteca;
 
+// clase que repesenta la tabla socio
 import java.sql.Date;
 
 public class Socio {
@@ -70,3 +72,4 @@ public class Socio {
 				+ ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", telefono=" + telefono + "]";
 	}
 }
+//Arán García Vallcanera
